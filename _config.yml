@@ -1,0 +1,10 @@
+theme: jekyll-theme-cayman
+title: Online Experiments for Language Scientists
+description: Academic year 2022-2023
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - index.md
