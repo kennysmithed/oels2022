@@ -16,25 +16,25 @@ We'll also be supported in lab classes by three excellent tutors: Aislinn Keogh,
 
 ## Class times
 
-The course runs in semester 1. **TBC** We have lectures 10am-11am on Mondays, and lab classes 9am-11am on Wednesdays. 
+The course runs in semester 1. We have lectures 10am-11am on Mondays, and lab classes 9am-11am on Wednesdays. **Timetabling for labs is currently To Be Confirmed**
 
 Lectures and labs are both essential to doing well on the course - the assessment involves an understanding both of the literature on online experiments (covered in the readings and lectures) and the practicalities of how to build them (covered in your own work on the practicals, with support available in the labs).
 
-### Lectures and labs
+### Arrangements for lectures and labs
 
-**All info in this section is currently TBC**
+**Information on class times and venues is currently TBC**
 
 Lectures take place *in person* on Monday mornings, 10am-10.55am, in **room to be allocated**. Labs will take place in on Wednesday mornings, 9am-11am, in **room to be allocated**. 
 
-Hopefully you are all familiar with attending in-person classes in corona times, but just as a reminder: 
+Hopefully you are all familiar with attending in-person classes in covid times, but just as a reminder: 
 - *Do not come to lectures if you are unwell or think you might be!* You can participate remotely (see below), so you won't miss out and you'll be protecting the rest of us. If I am isolating or unwell (but still well enough lecture) we'll do the lecture remotely; there are 5 staff members covering the labs so we should always have cover in the event that one of us is unwell.
-- If it makes you more comfortable or confident with attending in-person, feel free to wear a mask. I haven't worked out what I am going to do yet.
+- We encourage you to wear a mask when attending lectures and labs, particularly in contexts where it won't impede communication (e.g. when you are sitting listening to a lecture or working solo in a lab class).
 
-If you are unable to attend in-person lectures or labs due to illness, please see the course page on Learn for instructions on how to participate remotely. Lectures will be streamed live and there is a channel for asking questions in real time. We will provide a space on Gather (the one where you have a little avatar and can wander around a 2D world, bump into other people etc) for remote lab attendees, and assign a tutor to monitor it. 
+If you are unable to attend in-person lectures or labs due to illness, please see the course page on Learn for instructions on how to participate remotely. Lectures will be streamed live and there is a channel for asking questions in real time. We will use Teams for remote lab attendees, and assign a tutor to monitor remote attenders. 
 
 ## Assessment
 
-There are two pieces of assessment, due on 10th November and 8th December. Assessment 1 is an annotated bibliography reviewing and evaluating 4 articles typically drawn from the course set readings. Assessment 2 is a project where you produce a working experiment implemented in jsPsych and an accompanying report explaining the motivation behind that experiment, justifying important design decisions you took in building the experiment, and appraising the experiment and ways it could be improved/extended. Full details will be provided in assignment brief, and we will provide an FAQ. **brief and FAQ to appear**
+There are two pieces of assessment, due on 10th November and 8th December. Assessment 1 is an annotated bibliography reviewing and evaluating 4 articles typically drawn from the course set readings. Assessment 2 is a project where you produce a working experiment implemented in jsPsych and an accompanying report explaining the motivation behind that experiment, justifying important design decisions you took in building the experiment, and appraising the experiment and ways it could be improved/extended. Full details will be provided in assignment brief, and we will provide an FAQ. **Assignment brief and FAQ to appear**
 
 ## Course Materials
 
