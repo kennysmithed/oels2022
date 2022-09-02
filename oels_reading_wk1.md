@@ -5,7 +5,7 @@ description: Running experiments online, why and how
 
 ## The plan for week 1
 
-Week 1 is a fairly gentle intro to the course - in the lecture I will cover some admin and give you a preview of what we'll be covering, then in [the week 1 practical](oels_practical_wk1.md) we'll get you started on jsPsych, including building a little "hello world" demo and putting it on our teaching server. In a normal week this reading page will direct you to some journal articles you have to read **before** the corresponding lecture, but since the first lecture is at 10am on the Monday of week 1 there is no reading this week, other than this page! 
+Week 1 is a fairly gentle intro to the course - in the lecture I will cover some admin and give you a preview of what we'll be covering, then in [the week 1 practical](oels_practical_wk1.md) we'll get you started on jsPsych, including building a little "hello world" demo and putting it on our teaching server. In a normal week this reading page will direct you to some journal articles you have to read **before** the corresponding lecture, but since the first lecture is at 9am on the Monday of week 1 there is no reading this week, other than this page! 
 
 
 ## A note on accessing readings

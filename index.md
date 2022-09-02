@@ -16,7 +16,7 @@ We'll also be supported in lab classes by three excellent tutors: Aislinn Keogh,
 
 ## Class times
 
-The course runs in semester 1. We have lectures 10am-11am on Mondays, and lab classes 9am-11am on Wednesdays. **Timetabling for labs is currently To Be Confirmed**
+The course runs in semester 1. We have lectures 9am-9.50am on Mondays, and lab classes 9am-11am on Wednesdays. **Timetabling for labs is currently To Be Confirmed**
 
 Lectures and labs are both essential to doing well on the course - the assessment involves an understanding both of the literature on online experiments (covered in the readings and lectures) and the practicalities of how to build them (covered in your own work on the practicals, with support available in the labs).
 
@@ -24,7 +24,7 @@ Lectures and labs are both essential to doing well on the course - the assessmen
 
 **Information on class times and venues is currently TBC**
 
-Lectures take place *in person* on Monday mornings, 10am-10.55am, in **room to be allocated**. Labs will take place in on Wednesday mornings, 9am-11am, in **room to be allocated**. 
+Lectures take place *in person* on Monday mornings, 9am-9.50am, in room S1, 7 George Square. Labs will take place in on Wednesday mornings, 9am-11am, in **room to be allocated**. 
 
 Hopefully you are all familiar with attending in-person classes in covid times, but just as a reminder: 
 - *Do not come to lectures if you are unwell or think you might be!* You can participate remotely (see below), so you won't miss out and you'll be protecting the rest of us. If I am isolating or unwell (but still well enough lecture) we'll do the lecture remotely; there are 5 staff members covering the labs so we should always have cover in the event that one of us is unwell.
