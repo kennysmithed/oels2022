@@ -12,6 +12,8 @@ This week we are going to look at code for a simple grammaticality judgment expe
 
 By this point you know enough of the basics of jsPsych and javascript to work with a simple experiment. I'd like you to download and run the code I provide, look at how the code works, and then attempt the exercises below, which involve editing the code in simple ways. Next week you'll get a chance to build the experiment yourself before looking at example code from us.
 
+### Getting the code
+
 You need two files for this experiment, which you can download through the following two links:
 - <a href="code/grammaticality_judgments/grammaticality_judgments.html" download> Download grammaticality_judgments.html</a>
 - <a href="code/grammaticality_judgments/grammaticality_judgments.js" download> Download grammaticality_judgments.js</a>
@@ -25,6 +27,12 @@ The idea is that every week will will add a new subfolder to the `online_experim
 Assuming you have the directory structure all right, this code should run on your local computer (just open the `grammaticality_judgments.html` file in your browser) or you can upload it to the jspsychlearning server and play with it there, using the same sort of directory structure - it needs to be in `public_html`, e.g. if you have exactly the same directory structure on the server then the code would be in `public_html/online_experiments_practicals/grammaticality_judgments/`, and the URL for your experiment would be https://jspsychlearning.ppls.ed.ac.uk/~UUN/online_experiments_practicals/grammaticality_judgments/grammaticality_judgments.html (where UUN is your student number, s22... or whatever). 
 
 First, get the code and run through it so you can check it runs, and you can see what it does. Then take a look at the HTML and js files in your code editor (we are recommending Visual Studio Code).
+
+### Walk through the code
+
+`grammaticality_judgments.js` is probably one of the simplest types of experiments you could build. It has 4 grammaticality judgment trials, where participants provide a keypress response: y or n for "yes, this sentence could be spoken by a native speaker of English" or "no, it could not". Note that is slightly different from what Sprouse (2011) does - he asks people for a numerical response rather than a simple yes-no, we'll come to that later.
+
+There is also a little bit of wrapper around those 4 trials - a consent screen where participants click a button to give consent and proceed to the experiment, some information screens before the experiment proper starts, and then a final screen where you can display debrief information, completion codes etc to participants.
 
 You will see that `grammaticality_judgments.html` doesn't have much in it - all that does is use the `<script>...</script>` tag to load a couple of plugins via the CDN plus the file `grammaticality_judgments.js`.
 
@@ -42,9 +50,7 @@ your experiment will see these comments, including any curious participants!
 
 Those comments in the code are intended for you to read, to explain what the code is doing. But I'll also add some explanation here.
 
-`grammaticality_judgments.js` is probably one of the simplest types of experiments you could build. It has 4 grammaticality judgment trials, where participants provide a keypress response: y or n for "yes, this sentence could be spoken by a native speaker of English" or "no, it could not". Note that is slightly different from what Sprouse (2011) does - he asks people for a numerical response rather than a simple yes-no, we'll come to that later.
 
-There is also a little bit of wrapper around those 4 trials - a consent screen where participants click a button to give consent and proceed to the experiment, some information screens before the experiment proper starts, and then a final screen where you can display debrief information, completion codes etc to participants.
 
 The first thing that happens in the code is that we initialise jsPsych, as in the tutorials you have seen up to this point. We also tell it to show the raw data on-screen at the end of the experiment (using the `on_finish` parameter of `initJsPsych`). Obviously in a real experiment you would save the data rather than just showing it back to the participant, we'll show you how to do that later in the course!
 
@@ -69,9 +75,11 @@ const  jsPsych = initJsPsych({
   ...
 ```
 
-i.e. it uses `const` where we use `var`. `var` and `const` are different ways of creating variables that store values that we can refer to elsewhere in the code, the only difference between them is that when you create a variable using `var` you are allowed to change its stored value elsewhere in the code if you want to, whereas `const` doesn't allow that (`const` stands for "constant"). That's a very sensible division of labour (and javascript actually introduces a 3rd possibility, `let`, which restricts how and when a variable's value can be changed). But for simplicity we are just going to use `var` everywhere - we don't want you worrying at the moment about whether you will need to change values later on, sometimes we will so we will just use `var` when creating variables. We are just flagging this up here if you see `const` or `let` in example code elsewhere and wonder what those are for!
+i.e. it uses `const` where we use `var`. `var` and `const` are different ways of creating variables that store values that we can refer to elsewhere in the code, the only difference between them is that when you create a variable using `var` you are allowed to change its stored value elsewhere in the code if you want to, whereas `const` doesn't allow that (`const` stands for "constant"). That's a very sensible division of labour (and javascript actually introduces a 3rd possibility, `let`, which restricts how and when a variable's value can be changed). But for simplicity we are just going to use `var` everywhere - we don't want you worrying about whether `const` or `var` is the right choice so we will just use `var` when creating variables. We are just flagging this up here in case you see `const` or `let` in example code elsewhere and wonder what those are for!
 
-The code then lays out the grammaticality judgment trials. Note that just because they come first in the javascript file (e.g. before the consent screen, which is later in the code) this doesn't mean they will be the first thing the participant sees - the timeline controls what participants see when. Each judgment trial involves showing the participant a sentence and getting a single keypress response from them, which we can achieve using the `html-keyboard-response` plugin from jsPsych. Details of the options for that plugin are in the [jsPsych documentation](https://www.jspsych.org/7.3/plugins/html-keyboard-response/). We are using the `stimulus` parameter to hold the sentence the participant is judging, `prompt` reminds the participant what they are supposed to be doing, and `choices` shows the list of keyboard responses they are allowed to provide - in this case we only accept y or n keypresses, so everything else is ignored. So the code for one judgment trial looks like this:
+The code then lays out the grammaticality judgment trials. Note that just because they come first in the javascript file (e.g. before the consent screen, which is later in the code) this doesn't mean they will be the first thing the participant sees - the timeline controls what participants see when. 
+
+Each judgment trial involves showing the participant a sentence and getting a single keypress response from them, which we can achieve using the `html-keyboard-response` plugin from jsPsych. Details of the options for that plugin are in the [jsPsych documentation](https://www.jspsych.org/7.3/plugins/html-keyboard-response/). We are using the `stimulus` parameter to hold the sentence the participant is judging, `prompt` reminds the participant what they are supposed to be doing, and `choices` shows the list of keyboard responses they are allowed to provide - in this case we only accept y or n keypresses, so everything else is ignored. So the code for one judgment trial looks like this:
 
 ```js
 var judgment_trial_1 = {

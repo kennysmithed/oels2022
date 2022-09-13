@@ -1,15 +1,15 @@
 ---
 title: Week 3 practical, notes
-description: Some notes on answrs to the practical questions
+description: Some notes on answers to the practical questions
 ---
 
-## How would you add extra judgment trials to this code, to ask people about the grammaticality of some additional sentences? Try adding a few new judgment trials.
+### How would you add extra judgment trials to this code, to ask people about the grammaticality of some additional sentences? Try adding a few new judgment trials.
 
 This should be pretty easy and involves two steps: 
-1. Copy and paste the existing example trials, and then edit the `stimulus`.
+1. Copy and paste the existing example judgment trials, and then edit the `stimulus`.
 2. Add the new trial to the timeline. 
 
-So for example: the last trial in the code you were given looks like this:
+So for example: the last judgment trial in the code you were given looks like this:
 
 ```js
 //Filler sentence, ungrammatical
@@ -22,7 +22,7 @@ var judgment_trial_4 = {
 };
 ```
 
-and the timeline looks like this (notice that out trial, `judgment_trial_4`, slots in at the end):
+and the timeline looks like this (notice that our trial, `judgment_trial_4`, slots in at the end):
 
 ```js
 var full_timeline = [
@@ -61,16 +61,16 @@ var full_timeline = [
   judgment_trial_2,
   judgment_trial_3,
   judgment_trial_4,
-  judgment_trial_5,
+  judgment_trial_5, //added here
   final_screen,
 ];
 ```
 
-## Have a look at the data that is displayed at the end of the experiment. This is in comma-separated format, so a series of columns separated by commas, the very first row of the data gives you the column names. Can you see where the stimulus and the response for each trial is recorded? Is there anything in the data you weren't expecting or don't understand? Tip: this can be a bit unwieldy to look at on the screen, so you might want to copy and paste it into a spreadsheet app (e.g. Excel) and look at it there. Copy the text on the screen, paste it into e.g. Excel then use the "Text to Columns" command (under the Data menu in Excel on my mac) to format it - the data is comma-separated, there is a comma between each column, so you want to select "Delimited" with comma as the delimiter. If you get that right you'll suddenly go from a big mess to a nice spreadsheet with 7 columns, which will help you make sense of it.
+### Have a look at the data that is displayed at the end of the experiment. This is in comma-separated format, so a series of columns separated by commas, the very first row of the data gives you the column names. Can you see where the stimulus and the response for each trial is recorded? Is there anything in the data you weren't expecting or don't understand? Tip: this can be a bit unwieldy to look at on the screen, so you might want to copy and paste it into a spreadsheet app (e.g. Excel) and look at it there. Copy the text on the screen, paste it into e.g. Excel then use the "Text to Columns" command (under the Data menu in Excel on my mac) to format it - the data is comma-separated, there is a comma between each column, so you want to select "Delimited" with comma as the delimiter. If you get that right you'll suddenly go from a big mess to a nice spreadsheet with 7 columns, which will help you make sense of it.
 
-Hopefully you were able to figure out that the stimulus appears in a column called "stimulus", and the response is in a column called "response". The response will be the keypress for our judgment trials, so you should see a sequence of "y" and "n" responses there, but you'll notice it also displays the stimulus and response for all our information screens, which involve button rather than key responses - we'll talk about interpreting those response values later.
+Hopefully you were able to figure out that the stimulus appears in a column called "stimulus", and the response is in a column called "response". The response will be the keypress for our judgment trials, so you should see a sequence of "y" and "n" responses there, but you'll notice it also displays the stimulus and response for all our information screens, which involve button rather than key responses - we'll talk about interpreting response values for button-response trials later in the course.
 
-## Can you change the information screens so that participants progress to the next screen by pressing any key on the keyboard? 
+### Can you change the information screens so that participants progress to the next screen by pressing any key on the keyboard? 
 
 Our information screens currently use the `html-button-response` plugin, e.g.:
 
@@ -84,7 +84,9 @@ var instruction_screen_1 = {
 };
 ```
 
-But you also have examples of trials in this same experiment where we collect keyboard responses using the `html-keyboard-response` plugin - the judgment trials, see above for several examples. So the trick here is to switch our instruction trials to `html-keyboard-response`. We do that by changing the `type` parameter to `jsPsychHtmlKeyboardResponse` (again, look at how the type parameter is set in the judgment trials). But we also need to change the `choices` parameter. For a `html-button-response` trial the `choices` parameter gives the labels on the button(s) that people click on - but for a `html-keyboard-response` trial it is the keys you are allowed to press (e.g. for our judgment trials we specify `choices: ["y","n"]`, i.e. the y or n keys are allowed). So we also have to change the `choices` parameter. But how do we change it to allow *any* key to be pressed? You might be tempted to just include a list of all the keys, like `choices: ["q","u","e","r","t","y",...]` etc, but that would be really inefficient. A quick look at [the documentation for html-keyboard-response](https://www.jspsych.org/7.3/plugins/html-keyboard-response/) gives the solution: the default for `choices` is `"ALL_KEYS"` which means that any key press is accepted. So we can either just omit the `choices` parameter entirely and rely on this default:
+But you also have examples of trials in this same experiment where we collect keyboard responses using the `html-keyboard-response` plugin - the judgment trials, see above for several examples. So the trick here is to switch our instruction trials to `html-keyboard-response`. We do that by changing the `type` parameter to `jsPsychHtmlKeyboardResponse` (again, look at how the type parameter is set in the judgment trials). But we also need to change the `choices` parameter. For an `html-button-response` trial the `choices` parameter gives the labels on the button(s) that people click on - but for an `html-keyboard-response` trial it is the keys you are allowed to press (e.g. for our judgment trials we specify `choices: ["y","n"]`, i.e. the y or n keys are allowed). So we also have to change the `choices` parameter. But how do we change it to allow *any* key to be pressed? 
+
+You might be tempted to just include a list of all the keys, like `choices: ["q","u","e","r","t","y",...]` etc, but that would be really inefficient. A quick look at [the documentation for html-keyboard-response](https://www.jspsych.org/7.3/plugins/html-keyboard-response/) gives the solution: the default for `choices` is `"ALL_KEYS"` which means that any key press is accepted. So we can either just omit the `choices` parameter entirely and rely on this default:
 
 ```js
 var instruction_screen_1 = {
@@ -95,7 +97,7 @@ var instruction_screen_1 = {
 };
 ```
 
-Or we can explicitly specify we will accept `"ALL_KEYS"`:
+Or we can explicitly specify we will accept `"ALL_KEYS"` in the `choices` parameter:
 
 ```js
 var instruction_screen_1 = {
@@ -107,9 +109,9 @@ var instruction_screen_1 = {
 };
 ```
 
-## Can you change the judgment trials so participants can provide a single-digit numerical response, e.g. any number between 1 and 9, rather than simply allowing y or n as valid responses? That numerical response could indicate a more continuous scale of grammaticality, a bit more like Sprouse's magnitude estimation task.
+### Can you change the judgment trials so participants can provide a single-digit numerical response, e.g. any number between 1 and 9, rather than simply allowing y or n as valid responses? That numerical response could indicate a more continuous scale of grammaticality, a bit more like Sprouse's magnitude estimation task.
 
-Following on from the previous coupel of questions here: the trick is to change the `choices` parameter of our judgment trials, so that rather than only allowing "y" or "n" as choices we allow "1", "2", etc:
+Following on from the previous couple of questions here: the trick is to change the `choices` parameter of our judgment trials, so that rather than only allowing "y" or "n" as choices we allow "1", "2", etc:
 
 ```js
 //Filler sentence, ungrammatical
@@ -117,14 +119,14 @@ var judgment_trial_4 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: "Did where Blake buy the hat?",
   prompt:
-    "<p><em>Could this sentence be spoken by a native speaker of English? Press y or n</em></p>",
+    "<p><em>Could this sentence be spoken by a native speaker of English? Press 1 to 9</em></p>",
   choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
 };
 ```
 
-As far as I can tell there isn't a shortcut for this (i.e. there's no equivalent to `"ALL_KEYS"` that accepts only numbers).
+As far as I can tell there isn't a shortcut for this that avoids enumerating all the number keys (i.e. there's no equivalent to `"ALL_KEYS"` that accepts only numbers).
 
-## Can you change the judgment trials so the participants provide their responses by clicking yes/no buttons, rather than using the keyboard? (Hint: look at how I did the button on the consent screen)
+### Can you change the judgment trials so the participants provide their responses by clicking yes/no buttons, rather than using the keyboard? (Hint: look at how I did the button on the consent screen)
 
 This is essentially the reverse of the earlier question where we asked you to convert the instruction screens from `html-button-response` to `html-keyboard-response` - now we want to go in the opposite direction. This involves changing the `type` parameter, but also deciding what the `choices` will be - remember, for button-response trials the choices give the labels on the buttons. So we were looking for something like this:
 
@@ -139,7 +141,7 @@ var judgment_trial_4 = {
 };
 ```
 
-## How would you use buttons to provide a wider range of responses (e.g. "completely fine", "a little strange", "very strange", ...)?
+### How would you use buttons to provide a wider range of responses (e.g. "completely fine", "a little strange", "very strange", ...)?
 
 Again, this is just messing with the `choices` parameter.
 
@@ -155,9 +157,9 @@ var judgment_trial_4 = {
 ```
 
 
-## [More challenging] Sprouse (2011) actually uses a rather different layout and type of response: he has participants enter a numerical value for each sentence, has multiple judgments presented on a single page, and provides a reference sentence (e.g. an example sentence which should receive a score of 100) at the top of each page. Can you replace our simple yes/no judgment trials with something more like what Sprouse did, using the jsPsych [survey-text plugin](https://www.jspsych.org/7.3/plugins/survey-text/)?
+### [More challenging] Sprouse (2011) actually uses a rather different layout and type of response: he has participants enter a numerical value for each sentence, has multiple judgments presented on a single page, and provides a reference sentence (e.g. an example sentence which should receive a score of 100) at the top of each page. Can you replace our simple yes/no judgment trials with something more like what Sprouse did, using the jsPsych [survey-text plugin](https://www.jspsych.org/7.3/plugins/survey-text/)?
 
-The place to start here is with the documentation for that plugin. In particular, I note that it's got a `preamble` parameter for displaying text at the top (which we could use to display our reference sentence), and then we can provide a list of questions. The documentation on the format of those questions is a bit cryptic, but the examples further down the page are very helpful. 
+The place to start here is with the documentation for that plugin. In particular, I note that it's got a `preamble` parameter for displaying text at the top (which we could use to display our reference sentence), and then we can provide a list of questions (which will be our judgments). The documentation on the format of those questions is a bit cryptic, but the examples further down the page are very helpful. Copying, pasting and then tweaking one of those examples I end up with:
 
 ```js
 var survey_text_judgment_trial = {
