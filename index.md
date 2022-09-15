@@ -22,9 +22,7 @@ Lectures and labs are both essential to doing well on the course - the assessmen
 
 ### Arrangements for lectures and labs
 
-**Information on lab class venue is currently TBC**
-
-Lectures take place *in person* on Monday mornings, 9am-9.50am, in room S1, [7 George Square](https://www.ed.ac.uk/maps/maps?building=0209) - as far as I can work out, S indicates Second floor. Labs will take place in on Wednesday mornings, 9am-11am, in **room to be allocated**. 
+Lectures take place *in person* on Monday mornings, 9am-9.50am, in room S1, [7 George Square](https://www.ed.ac.uk/maps/maps?building=0209) - as far as I can work out, S indicates Second floor. Labs will take place in on Wednesday mornings, 9am-11am, in the MacLaren Stuart room, [Old College](https://www.ed.ac.uk/maps/maps?building=0001) - this is in the north east corner of the old College quad, go through the door marked "Edinburgh School of Law and the MacLaren Stuart is immediately on your left. 
 
 Hopefully you are all familiar with attending in-person classes in covid times, but just as a reminder: 
 - *Do not come to lectures if you are unwell or think you might be!* You can participate remotely (see below), so you won't miss out and you'll be protecting the rest of us. If I am isolating or unwell (but still well enough lecture) we'll do the lecture remotely; there are 5 staff members covering the labs so we should always have cover in the event that one of us is unwell.
