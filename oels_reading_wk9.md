@@ -15,7 +15,7 @@ Read:
 - [Beckner, C., Pierrehumbert, J., & Hay, J. (2017). The emergence of linguistic structure in an online iterated learning task. *Journal of Language Evolution, 2*, 160–176.](https://doi.org/10.1093/jole/lzx001)
 
 A couple of things to note:
-- Reading the Kirby et al. (2008) paper might give you some broader context on the hypothesis that motivated us to run this kind of experiment in the first place - it's fairly short, 6 pages, and linked in the references section below.
+- Reading the Kirby et al. (2008) paper might give you some broader context on the hypothesis that motivated us to run this kind of experiment in the first place - it's fairly short, 6 pages, and linked in the references section below. It's been cited over 1000 times now and we are forever banging on about it, despite its flaws!
 - Beckner et al. give us a bit of a hard time for our small sample size and very basic stats in the 2008 paper, but I think they are actually pretty gentle! That 2008 paper reports the first experimental study we ran, we had pretty limited resources and didn't really know what we were doing. I was particularly relieved that the results of our Experiment 2 replicated so well.
 - Section 1.1.1 of Beckner et al. is a (much more competent) reanalysis of our 2008 data, with fancier stats to handle a non-linear increase in compositionality (i.e. it increases over generations but not at a constant rate) - don't stress if you don't fully follow the statistical method.
 - Their experimental method (with a nice hide-and-seek framing for the task, various intermediate attention checks etc) is quite a lot fancier than what we normally do, and certainly fancier than the experiment I have implemented in the practical for this week.
