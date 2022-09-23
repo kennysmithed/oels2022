@@ -84,6 +84,7 @@ In week 5 there is no lecture, but we have a lab as usual - use this time to cat
 
 - *Scientific content:* speech perception, social influences on phonetic adaptation
 - *Technical content:* Audio, trial data again, preloading stimuli, saving data trial by trial
+- [Reading](oels_reading_wk7.md)
 
 ### Week 8 (7th November): **Topic TBC**
 
@@ -94,11 +95,13 @@ In week 5 there is no lecture, but we have a lab as usual - use this time to cat
 
 - *Scientific content:* iterated learning and the evolution of compositional structure
 - *Technical content:* looping trials, reading trial lists from CSVs again, PHP scripts for iteration
+- [Reading](oels_reading_wk9.md)
 
 ### Week 10 (21st November): Participant-to-participant interaction
 
 - *Scientific content:* least effort and Zipf's Law of Abbreviation
 - *Technical content:* web sockets, python servers, incrementally building a timeline
+- [Reading](oels_reading_wk10.md)
 
 
 ### Week 11 (28th November): Interacting with MTurk
