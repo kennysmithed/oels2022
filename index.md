@@ -68,6 +68,7 @@ Each week there will be a set reading and a programming assignment. The reading 
 
 - *Scientific content:* processing costs of syntactic dependencies
 - *Technical content:* collecting reaction time data, more complex nested trials
+- [Reading](oels_reading_wk4.md)
 
 ### Week 5 (17th October): Lab catchup week
 
@@ -77,6 +78,7 @@ In week 5 there is no lecture, but we have a lab as usual - use this time to cat
 
 - *Scientific content:* probability matching and regularisation
 - *Technical content:* using trial data for contingent trials, filtering and saving data
+- [Reading](oels_reading_wk6.md)
 
 ### Week 7 (31st October): Audio stimuli
 

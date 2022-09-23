@@ -7,7 +7,7 @@ description: Crowdsourcing experimental data
 
 In this week's lecture/discussion we'll talk about crowdsourcing experimental data, some of the ethical and experimental control issues that arise when you crowdsource, and some general stuff on the demographics of crowdsourcing sites. Remember to do the reading and bring any questions/comments to the Monday class!
 
-For [the practical component of week 2](oels_practical_wk2.md) we'll continue working through the basics of jsPych and javascript so we can jump in to building simple experiments in week 3.
+For the practical component of week 2 we'll continue working through the basics of jsPych and javascript so we can jump in to building simple experiments in week 3.
 
 ## Reminder: crowdsourcing
 

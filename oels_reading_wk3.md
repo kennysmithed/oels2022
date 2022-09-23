@@ -7,7 +7,7 @@ description: Grammaticality judgments
 
 Now we have worked through some preliminaries, we'll move on to some more interesting content, seeing how people have used online data collection to answer linguistic questions and playing with code to allow us to do the same.
 
-We'll start by looking at grammaticality judgments - not because I am especially interested in syntax, but because this is a very simple sort of data to collect (in its simplest form, simple yes/no responses on whether or not a particular sentence could be produced by a native speaker), so coding it up is going to be easy. We'll look at a paper published in 2011, in the early days of widespread use of online data collection, which verifies that 'traditional' in-lab judgments match those collected online from MTurk. Then in [the week 3 practical](oels_practical_wk3.md) you'll get a chance to look at some very simple jsPsych code for a grammaticality judgment experiment.
+We'll start by looking at grammaticality judgments - not because I am especially interested in syntax, but because this is a very simple sort of data to collect (in its simplest form, simple yes/no responses on whether or not a particular sentence could be produced by a native speaker), so coding it up is going to be easy. We'll look at a paper published in 2011, in the early days of widespread use of online data collection, which verifies that 'traditional' in-lab judgments match those collected online from MTurk. Then in this week's practical you'll get a chance to look at some very simple jsPsych code for a grammaticality judgment experiment.
 
 ## Reading tasks for this week
 
