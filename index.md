@@ -32,7 +32,7 @@ If you are unable to attend in-person lectures or labs due to illness, please se
 
 ## Assessment
 
-There are two pieces of assessment, due on 10th November and 8th December. Assessment 1 is an annotated bibliography reviewing and evaluating 4 articles typically drawn from the course set readings. Assessment 2 is a project where you produce a working experiment implemented in jsPsych and an accompanying report explaining the motivation behind that experiment, justifying important design decisions you took in building the experiment, and appraising the experiment and ways it could be improved/extended. Full details are provided in [assignment brief](assessment/AsignmentBrief2022.pdf), and we will provide model answers and an FAQ.
+There are two pieces of assessment, due on 10th November and 8th December. Assessment 1 is an annotated bibliography reviewing and evaluating 4 articles typically drawn from the course set readings. Assessment 2 is a project where you produce a working experiment implemented in jsPsych and an accompanying report explaining the motivation behind that experiment, justifying important design decisions you took in building the experiment, and appraising the experiment and ways it could be improved/extended. Full details are provided in the [assignment brief](assessment/AssignmentBrief2022.pdf), and we will provide model answers and an FAQ.
 
 ## Course Materials
 
