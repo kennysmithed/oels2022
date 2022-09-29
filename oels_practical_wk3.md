@@ -10,7 +10,7 @@ This week we are going to look at code for a simple grammaticality judgment expe
 
 ## A grammaticality judgment experiment
 
-By this point you know enough of the basics of jsPsych and javascript to work with a simple experiment. I'd like you to download and run the code I provide, look at how the code works, and then attempt the exercises below, which involve editing the code in simple ways. Next week you'll get a chance to build the experiment yourself before looking at example code from us.
+By this point you know enough of the basics of jsPsych and javascript to work with a simple experiment. We'd like you to download and run the code we provide, look at how the code works, and then attempt the exercises below, which involve editing the code in simple ways. Next week you'll get a chance to build the experiment yourself before looking at example code from us.
 
 ### Getting the code
 
@@ -22,9 +22,9 @@ The code makes some assumptions about where you will save it - you can change th
 
 ![suggested directory structure](images/grammaticality_judgments_directory_structure.png)
 
-The idea is that every week will will add a new subfolder to the `online_experiments_practicals` folder containing new code for a new experiment. 
+The idea is that every week you will add a new subfolder to the `online_experiments_practicals` folder containing new code for a new experiment. 
 
-Assuming you have the directory structure all right, this code should run on your local computer (just open the `grammaticality_judgments.html` file in your browser) or you can upload it to the jspsychlearning server and play with it there, using the same sort of directory structure - it needs to be in `public_html`, e.g. if you have exactly the same directory structure on the server then the code would be in `public_html/online_experiments_practicals/grammaticality_judgments/`, and the URL for your experiment would be https://jspsychlearning.ppls.ed.ac.uk/~UUN/online_experiments_practicals/grammaticality_judgments/grammaticality_judgments.html (where UUN is your student number, s22... or whatever). 
+This code should run on your local computer (just open the `grammaticality_judgments.html` file in your browser) or you can upload it to the jspsychlearning server and play with it there, using the same sort of directory structure - it needs to be in `public_html`, e.g. if you have exactly the same directory structure on the server then the code would be in `public_html/online_experiments_practicals/grammaticality_judgments/`, and the URL for your experiment would be https://jspsychlearning.ppls.ed.ac.uk/~UUN/online_experiments_practicals/grammaticality_judgments/grammaticality_judgments.html (where UUN is your student number, s22... or whatever). 
 
 First, get the code and run through it so you can check it runs, and you can see what it does. Then take a look at the HTML and js files in your code editor (we are recommending Visual Studio Code).
 
@@ -50,8 +50,6 @@ your experiment will see these comments, including any curious participants!
 
 Those comments in the code are intended for you to read, to explain what the code is doing. But I'll also add some explanation here.
 
-
-
 The first thing that happens in the code is that we initialise jsPsych, as in the tutorials you have seen up to this point. We also tell it to show the raw data on-screen at the end of the experiment (using the `on_finish` parameter of `initJsPsych`). Obviously in a real experiment you would save the data rather than just showing it back to the participant, we'll show you how to do that later in the course!
 
 ```js
@@ -65,21 +63,21 @@ var jsPsych = initJsPsych({
 You might notice one small difference from the jsPsych "hello world" tutorial, which is that we say 
 
 ```js
-var  jsPsych = initJsPsych({
+var jsPsych = initJsPsych({
   ...
 ```
 
 whereas the tutorial says 
 ```js
-const  jsPsych = initJsPsych({
+const jsPsych = initJsPsych({
   ...
 ```
 
-i.e. it uses `const` where we use `var`. `var` and `const` are different ways of creating variables that store values that we can refer to elsewhere in the code, the only difference between them is that when you create a variable using `var` you are allowed to change its stored value elsewhere in the code if you want to, whereas `const` doesn't allow that (`const` stands for "constant"). That's a very sensible division of labour (and javascript actually introduces a 3rd possibility, `let`, which restricts how and when a variable's value can be changed). But for simplicity we are just going to use `var` everywhere - we don't want you worrying about whether `const` or `var` is the right choice so we will just use `var` when creating variables. We are just flagging this up here in case you see `const` or `let` in example code elsewhere and wonder what those are for!
+i.e. it uses `const` where we use `var`. `var` and `const` are different ways of creating variables that store values that we can refer to elsewhere in the code. The only difference between them is that when you create a variable using `var` you are allowed to change its stored value elsewhere in the code if you want to, whereas `const` doesn't allow that (`const` stands for "constant"). That's a very sensible division of labour (and javascript actually introduces a 3rd possibility, `let`, which restricts how and when a variable's value can be changed). But for simplicity we are just going to use `var` everywhere - we don't want you worrying about whether `const` or `var` is the right choice so we will just use `var` when creating variables. We are just flagging this up here in case you see `const` or `let` in example code elsewhere and wonder what those are!
 
-The code then lays out the grammaticality judgment trials. Note that just because they come first in the javascript file (e.g. before the consent screen, which is later in the code) this doesn't mean they will be the first thing the participant sees - the timeline controls what participants see when. 
+The code then lays out the grammaticality judgment trials. Note that just because they come first in the javascript file (e.g. before the consent screen, which is later in the code) this doesn't mean they will be the first thing the participant sees - the experiment timeline controls what participants see when. 
 
-Each judgment trial involves showing the participant a sentence and getting a single keypress response from them, which we can achieve using the `html-keyboard-response` plugin from jsPsych. Details of the options for that plugin are in the [jsPsych documentation](https://www.jspsych.org/7.3/plugins/html-keyboard-response/). We are using the `stimulus` parameter to hold the sentence the participant is judging, `prompt` reminds the participant what they are supposed to be doing, and `choices` shows the list of keyboard responses they are allowed to provide - in this case we only accept y or n keypresses, so everything else is ignored. So the code for one judgment trial looks like this:
+Each judgment trial involves showing the participant a sentence and getting a single keypress response from them, which we can achieve using the `html-keyboard-response` plugin from jsPsych. Details of the options for that plugin are in the [jsPsych documentation](https://www.jspsych.org/7.3/plugins/html-keyboard-response/). We are using the `stimulus` parameter for the sentence the participant is judging, `prompt` reminds the participant what they are supposed to be doing, and `choices` shows the list of keyboard responses they are allowed to provide - in this case we only accept y or n keypresses, so any other keypress is ignored. So the code for one judgment trial looks like this:
 
 ```js
 var judgment_trial_1 = {
@@ -91,9 +89,9 @@ var judgment_trial_1 = {
 };
 ```
 
-The only slightly fancy thing in there is that in the prompt I am using some HTML tags - the `<p>...</p>` tag to put the prompt in its own paragraph (it vertically separates the prompt from the stimulus a bit, which I think looks better) and also the `<em>...</em>` tag to make the prompt in italics (again, to visually separate it from the stimulus sentence - em stands for *emphasis* I think).
+The only slightly fancy thing in there is that in the prompt I am using some HTML tags - the `<p>...</p>` tag to put the prompt in its own paragraph (it vertically separates the prompt from the stimulus a bit, which I think looks better) and also the `<em>...</em>` tag to make the prompt in italics (again, to visually separate it from the stimulus sentence - em stands for *emphasis* I think). If you want to know what the prompt would look like without those tags, feel free to delete them and reload the experiment to find out.
 
-The code defines 4 such trials, inspired by the type of sentences used in Sprouse (2011).
+The code defines 4 such trials, inspired by the type of sentences used in Sprouse (2011), all using exactly the same template.
 
 That's basically the only interesting part of the code! But we also need some preamble for the participants. Most experiments start with a consent screen, where participants read study information and then consent to participate. I include a placeholder for this consent screen using the `html-button-response` plugin - you see the consent information and then click a button to indicate that you consent. The code for that looks as follows:
 
@@ -134,7 +132,7 @@ var instruction_screen_1 = {
 
 That's quite a lot of text, but it's just a very simple button response trial with a long bit of HTML-formatted bit of text to display. There are several other options for instruction screens - `html-keyboard-response` would be OK (although I find it's a bit too easy to advance through lots of those by mashing the keyboard), or jsPsych provides [an instructions plugin](https://www.jspsych.org/7.3/plugins/instructions/) which allows you to specify multiple pages in a single trial and gives participants the ability to scroll forwards and backwards through those pages. 
 
-Once all the various trials are defined, we can stick them together in a timeline for the experiment. The timeline is very simple and is just a list of all the trials we have created up to this point:
+Once all the various trials are defined, we can stick them together in a timeline for the experiment. The timeline is very simple and is just a list of all the trials we have created up to this point, in the order we want them to appear:
 ```js
 var full_timeline = [
   consent_screen,
@@ -154,13 +152,12 @@ Then to run the experiment we call `jsPsych.run` with this `full_timeline` varia
 jsPsych.run(full_timeline);
 ```
 
-
 ## Exercises with the grammaticality judgment experiment code
 
 Attempt these problems. After the practical you will be able to consult [some notes on the answers](oels_practical_wk3_notes.md), but note that this link won't function until after the class - we want you to try this stuff yourself!
 
 - How would you add extra judgment trials to this code, to ask people about the grammaticality of some additional sentences? Try adding a few new judgment trials.
-- Have a look at the data that is displayed at the end of the experiment. This is in comma-separated format, so a series of columns separated by commas, the very first row of the data gives you the column names. Can you see where the stimulus and the response for each trial is recorded? Is there anything in the data you weren't expecting or don't understand? Tip: this can be a bit unwieldy to look at on the screen, so you might want to copy and paste it into a spreadsheet app (e.g. Excel) and look at it there. Copy the text on the screen, paste it into e.g. Excel then use the "Text to Columns" command (under the Data menu in Excel on my mac) to format it - the data is comma-separated, there is a comma between each column, so you want to select "Delimited" with comma as the delimiter. If you get that right you'll suddenly go from a big mess to a nice spreadsheet with 7 columns, which will help you make sense of it.
+- Have a look at the data that is displayed at the end of the experiment. This is in comma-separated format, so a series of columns separated by commas, the very first row of the data gives you the column names. Can you see where the stimulus and the response for each trial is recorded? Is there anything in the data you weren't expecting or don't understand? **Tip:** this can be a bit unwieldy to look at on the screen, so you might want to copy and paste it into a spreadsheet app (e.g. Excel) and look at it there. Copy the text on the screen, paste it into e.g. Excel then use the "Text to Columns" command (under the Data menu in Excel on my mac) to format it - the data is comma-separated, there is a comma between each column, so you want to select "Delimited" with comma as the delimiter. If you get that right you'll suddenly go from a big mess to a nice spreadsheet with columns, which will help you make sense of it.
 - Can you change the information screens so that participants progress to the next screen by pressing any key on the keyboard? 
 - Can you change the judgment trials so participants can provide a single-digit numerical response, e.g. any number between 1 and 9, rather than simply allowing y or n as valid responses? That numerical response could indicate a more continuous scale of grammaticality, a bit more like Sprouse's magnitude estimation task.
 - Can you change the judgment trials so the participants provide their responses by clicking yes/no buttons, rather than using the keyboard? (Hint: look at how I did the button on the consent screen)
@@ -169,9 +166,9 @@ Attempt these problems. After the practical you will be able to consult [some no
 
 ## Optional: a version of the code using timeline variables
 
-You might have noticed that in `grammaticality_judgments.js` we quite laboriously lay out 4 judgment trials, all of which are identical in structure apart from the `stimulus` parameter. There are a couple of more efficient ways to do this, one of which is by using jsPsych timeline variables. If you'd like to see how that's done, download and inspect the file <a href="code/grammaticality_judgments/grammaticality_judgments_with_timeline_variables.js" download> grammaticality_judgments_with_timeline_variables.js</a>, stick it in your `grammaticality_judgments` folder, then see if you can get that to run by telling `grammaticality_judgments.html` to load the timeline javascript file rather than the basic one (by editing line 9 of the html file).
+You might have noticed that in `grammaticality_judgments.js` we quite laboriously lay out 4 judgment trials, all of which are identical in structure apart from the `stimulus` parameter. There are a couple of more efficient ways to do this, one of which is by using jsPsych timeline variables. If you'd like to see how that's done, download and inspect the file <a href="code/grammaticality_judgments/grammaticality_judgments_with_timeline_variables.js" download> grammaticality_judgments_with_timeline_variables.js</a>, stick it in your `grammaticality_judgments` folder, then see if you can get that to run by editing `grammaticality_judgments.html` so that it loads the timeline javascript file rather than the basic one (by editing line 9 of the html file).
 
-You might be wondering what the advantage of using this slightly fancier code is, and/or thinking "I could just copy and paste the judgment trials and edit them directly, isn't that simpler?". It maybe is conceptually simpler to copy and paste simple code, but it's also more error prone, since it relies on you not making any mistakes in copying, pasting and editing the same little block of code over and over again. In general, if you find yourself doing a lot of copying, pasting and editing when writing code it's a sign that you are doing something manually that the computer could do for you automatically, more quickly and with less chance of errors. We'll come back to that next week when we look at self-paced reading, where the "simple" manual approach would produce some really unwieldy code.
+You might be wondering what the advantage is of using this slightly fancier code, and/or thinking "I could just copy and paste the judgment trials and edit them directly, isn't that simpler?". It maybe is conceptually simpler to copy and paste simple code, but it's also more error prone, since it relies on you not making any mistakes in copying, pasting and editing the same little block of code over and over again. In general, if you find yourself doing a lot of copying, pasting and editing when writing code it's a sign that you are doing something manually that the computer could do for you automatically, more quickly and with less chance of errors. We'll come back to that next week when we look at self-paced reading, where the "simple" manual approach would produce some really unwieldy code.
 
 
 ## Re-use
