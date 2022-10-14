@@ -16,7 +16,7 @@ We'll also be supported in lab classes by three excellent tutors: Aislinn Keogh,
 
 ## Class times
 
-The course runs in semester 1. We have lectures 9am-9.50am on Mondays, and lab classes 9am-10.50am on Wednesdays.
+The course runs in semester 1. We have lectures 9am-9.50am on Mondays, and lab classes 9am-10.50am on Wednesdays. There are also extra dorp-in labs available, see below.
 
 Lectures and labs are both essential to doing well on the course - the assessment involves an understanding both of the literature on online experiments (covered in the readings and lectures) and the practicalities of how to build them (covered in your own work on the practicals, with support available in the labs).
 
@@ -114,6 +114,14 @@ No lecture or lab in week 11, but there are some materials that will be useful f
 
 - *Scientific content:* None!
 - *Technical content:* How to set up a server, launch and pay participants, manage qualifications, etc
+
+### Additional drop-in labs
+
+If you have questions and don't get a chance to ask them in labs, you can turn up at one of our additional drop-ins, which start in week 5 (week commencing 17th October). 
+- Mondays, 1.10pm-2pm, online with Aislinn. This is in the same Teams channel as used for the labs (see instructions on how to sign up to the Teams channel on Learn)
+- Thursdays, 3.10pm-4pm, in Dugald Stewart Building room 4.01 with Vilde.
+
+Note that these are not compulsory, and they are drop-ins not extra labs - the idea is that you come along, ask a couple of questions, then go away.
 
 ### Additional drop-in labs for questions on Assessment 2 code
 
