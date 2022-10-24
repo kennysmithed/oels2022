@@ -196,7 +196,8 @@ var instruction_screen_observation = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
     "<h3>Observation Instructions</h3>\
-  <p>Instructions for the observation stage.</p>",
+  <p>You will observe one object being named several times. \
+  Just sit back and watch.</p>",
   choices: ["Continue"],
 };
 
@@ -204,7 +205,9 @@ var instruction_screen_production = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
     "<h3>Production Instructions</h3>\
-  <p>Instructions for the production phase.</p>",
+  <p>Next, you will be shown the same object again. \
+  Please name this object like you saw in the observation stage. \
+  This will repeat several times.</p>",
   choices: ["Continue"],
 };
 
