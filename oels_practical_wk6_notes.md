@@ -75,7 +75,7 @@ So if we also want to test on object 5, we can extend this to:
 
 ```js
 var production_trial_object4 = make_production_trial("object4", ["buv", "cal"]);
-var production_trial_object5 = make_production_trial('object5',['seb','nuk']);
+var production_trial_object5 = make_production_trial('object5',["seb","nuk"]);
 var production_trials = jsPsych.randomization.repeat(
   [production_trial_object4, production_trial_object5],
   5
@@ -122,7 +122,7 @@ The trickiest thing here will be having choices in a button-response trial that 
 
 ### [Optional, hard] Can you figure out how to use the `jsPsych.randomization.shuffleNoRepeats` function [documented here](https://www.jspsych.org/7.3/reference/jspsych-randomization/#jspsychrandomizationshufflenorepeats) to do a version where observation and test trials for multiple objects are interspersed, but you never see the same object twice in a row? NB this will only work if you have 3+ different objects in the experiment - it's too hard for the code to find randomisations with no repeats if you have a small number of objects, and impossible if you only have one object, so the code will hang while  endlessly searching! 
 
-[We already provided a detailed model answer for this.](oels_practical_wk6_norepeat.md).
+[We already provided a detailed model answer for this](oels_practical_wk6_norepeat.md).
 
 
 ## Re-use
