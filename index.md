@@ -93,10 +93,10 @@ In week 5 there is no lecture, but we have a lab as usual - use this time to cat
 - [Reading](oels_reading_wk7.md)
 - [Lecture slides](slides/oels_lecture_wk7.pdf)
 
-### Week 8 (7th November): **Topic TBC**
+### Week 8 (7th November): Priming and overspecification
 
-- *Scientific content:* TBC
-- *Technical content:*  Audio recording, more randomisation stuff, custom preload lists, reading trial lists from CSV
+- *Scientific content:* Priming and overspecification
+- *Technical content:*  Audio recording, custom preload lists, reading trial lists from CSV
 
 ### Week 9 (14th November): Iterated Learning
 
