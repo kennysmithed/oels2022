@@ -117,7 +117,7 @@ var dill_trial = {
 That would play the sound file `picture_selection_sounds/fresh_dill.mp3` (note that we have to tell the code that this sound file can be found in the folder `picture_selection_sounds`), and give the participant two text-button options, "fresh_dill" and "dry_dill" (so no images yet). The order of those choices is fixed though - the correct response is on the left - and unless we want to manually randomise when constructing our trial list it might be wise to borrow some of the tricks from the word learning experiment and randomise the order of the buttons on every trial. As usual, the jsPsych plugin won't record this for us, so we will have to use the `data` object again to keep track of what order the buttons are in and which one the participant clicked on. We can just borrow the code from the word learning experiment to do this:
 
 ```js
-vvar dill_trial = {
+var dill_trial = {
   type: jsPsychAudioButtonResponse,
   stimulus: "picture_selection_sounds/fresh_dill.mp3",
   choices: ["fresh_dill", "dry_dill"],
