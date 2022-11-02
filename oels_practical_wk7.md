@@ -374,7 +374,7 @@ You might notice that when you run through the experiment that the images in the
 
 ## Exercises with the perceptual learning experiment code
 
-Attempt these problems. After the class finishes we will post model answers as usual.
+Attempt these problems. After you have attempted them you can look at [my notes)(oels_practical_wk7_notes.md).
 
 - Run the code once and look at the `perceptuallearning_data.csv` file to make sure it makes sense to you. You can also compare the data saved in the server with the data dumped in the browser. Run the code again and see what happens to that file, and think about how you might want to save your data for a real experiment.
 - Check you can add a few more picture selection trials with other images and sound files (you might need to consult the `perceptual_learning_stims.csv` file to see the full list of stimuli).
