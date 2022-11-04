@@ -25,6 +25,10 @@ Yes absolutely! As long as it's a proper paper and not just e.g. a 200 word abst
 
 Yes absolutely! 
 
+###  If we are writing about a study that involved multiple experiments, is it okay to focus mainly on the most relevant one, given the word limit?
+
+Yes definitely!
+
 ## Assessment 2
 
 ###  Once I have built my experiment, am I supposed to collect actual data from participants?
