@@ -12,7 +12,7 @@ As usual, in this week's practical you'll get a chance to look at a similar expe
 ## Reading tasks for this week
 
 Read:
-- [Joy, J. E., & Smith, K. (2021). Speakers Align With Their Partner's Overspecification During Interaction. *Cognitive Science, 45,* e13065.](https://doi.org/10.1111/cogs.13065)
+- [Loy, J. E., & Smith, K. (2021). Speakers Align With Their Partner's Overspecification During Interaction. *Cognitive Science, 45,* e13065.](https://doi.org/10.1111/cogs.13065)
 
 
 ## Re-use
