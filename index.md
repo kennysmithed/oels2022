@@ -99,6 +99,7 @@ In week 5 there is no lecture, but we have a lab as usual - use this time to cat
 - *Scientific content:* Priming and overspecification
 - *Technical content:*  Audio recording, custom preload lists, reading trial lists from CSV
 - [Reading](oels_reading_wk8.md)
+- [Lecture slides](slides/oels_lecture_wk8.pdf)
 
 ### Week 9 (14th November): Iterated Learning
 
