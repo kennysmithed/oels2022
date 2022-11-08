@@ -44,7 +44,7 @@ The sound files and images you will want to play around with are in the `sounds`
 
 For images:
 
-Faces: "f_fr1" is **f**emale face, **fr**ightened emotion, face number **1** (we have several faces for each emotion); "f_ha2" is happy female face number 2. Male faces start with "m_" rather than "f_" - e.g. "m_fr1" would be frightened male face number 2
+Faces: "f_fr1" is **f**emale face, **fr**ightened emotion, face number **1** (we have several faces for each emotion); "f_ha2" is happy female face number 2. Male faces start with "m_" rather than "f_" - e.g. "m_fr3" would be frightened male face number 3.
 
 Fruit and veg: these are named "frv1" (apple) through to "frv16" (watermelon).
 
