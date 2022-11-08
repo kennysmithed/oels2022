@@ -10,7 +10,7 @@ This week we are going to look at code for a confederate priming experiment base
 
 # Acknowledgments
 
-I cobbled together some audio recording code for the online experiments in Loy & Smith (2020), which we then used for Loy & Smith (2021); Annie Holz then jsPsych-ified it ([she has her own audio recording demo](https://experiments.ppls.ed.ac.uk/)), and I tweaked that code for this demo experiment.
+I cobbled together some audio recording code for the online experiments in another confederate priming paper, Loy & Smith (2020), which we then used for Loy & Smith (2021); Annie Holz then jsPsych-ified it ([she has her own audio recording demo](https://experiments.ppls.ed.ac.uk/)), and I tweaked that code for this demo experiment.
 
 For this demo experiment we are using audio stims recorded by my RA Rachel Kindellan, who was the confederate in Loy & Smith (2021). The images are the ones we used in the experiments described in the paper.
 
@@ -20,11 +20,11 @@ For this demo experiment we are using audio stims recorded by my RA Rachel Kinde
 
 As with last week, we'd like to give you an opportunity to try to build (parts of) this experiment yourself, and we'll provide you with a template that we pre-built for you so you can focus on the more interesting parts of the experiment.
 
-You need a bunch of files for this experiment - html and js files for several versions of the experiment, *two* php files (for saving CSV and audio data, and also reading in trial lists), plus various folders containing images, sounds, trial lists etc. Again, rather than downloading them individually, download the following zip file and then uncompress it into your usual jspsych folder:
+You need a bunch of files for this experiment - html and js files for several versions of the experiment, *two* php files (for saving CSV and audio data, and also reading in trial lists), plus various folders containing images, sounds, trial lists etc. Again, rather than downloading them individually, download the following zip file:
 - <a href="code/confederate_priming.zip" download> Download confederate_priming.zip</a>
 
-As usual, extract this and copy the folder into your practicals on the jspsychlearning server - since data (including audio) won't save if you run it locally, by this point you really want to be at least testing everything on the server. Furthermore, there are a couple of things to note before you can run our implementation of the code:
-- Our code will save audio files to a subfolder of `server_data` called `audio` - so you need to create such a subfolder. You can create new folders in cyberduck quite easily, but you have to create this new folder in exactly the right way to make sure the folder permissions (rules about who can write to the folder) are set correctly, otherwise your audio won't save. Go to your `server_data` folder in cyberduck and go into the folder (i.e. double-click it) so your cyberduck window looks like this - note that my navigation bar shows me I am in `/home/ksmith7/server_data`, yours will show you as in `/home/UUN/server_data` depending on what your UUN is.
+As usual, extract this and copy the folder into your practicals folder on the jspsychlearning server - since data (including audio) won't save if you run it locally, by this point you really want to be at least testing everything on the server. Furthermore, there are a couple of things to note before you can run our implementation of the code:
+- Our code will save audio files to a subfolder of `server_data` called `audio` - so you need to create that subfolder. You can create new folders in cyberduck quite easily, but you have to create this new folder in exactly the right way to make sure the folder permissions (rules about who can write to the folder) are set correctly, otherwise your audio won't save. Go to your `server_data` folder in cyberduck and go into the folder (i.e. double-click it) so your cyberduck window looks like this - note that my navigation bar shows me I am in `/home/ksmith7/server_data`, yours will show you as in `/home/UUN/server_data` depending on what your UUN is.
 ![cyberduck in server_data](images/create_audio_folder.png)
 Then click the "action" button (with the cog), select the "New folder..." option and call the new folder `audio` (with that exact name, i.e. lower-case first letter). That should create a folder in the correct place with the correct permissions!
 - You may need to use Chrome for the audio recording to work reliably - feel free to try out other browsers, but if the audio recording doesn't work, try it in Chrome first before seeking our help!
@@ -36,15 +36,15 @@ If you run through our implementation of the experiment you'll see that the expe
 - Picture selection trials, where participants hear audio from their partner (in fact, pre-recorded audio from our confederate) and select the matching picture from an array of 2 pictures.
 - Picture description trials, where participants see two pictures side by side and produce a a description for one of them (the target) for their partner, clicking a mic icon to start and stop recording.
 
-We are interested in whether, on critical trials featuring an opportunity to produce an unnecessary colour word, the descriptions produced by the confederate (which consistently include or omit the colour word) influences the descriptions the participant produces.
+We are interested in whether, on critical trials featuring an opportunity to produce an unnecessary colour word, the descriptions produced by the confederate (which consistently overspecify or avoid overspecifying) influences the descriptions the participant produces.
 
-Implementing something like this in full involves some technical steps you haven't seen yet, in particular recording audio - jsPsych actually provides some plugins for audio responses but we prefer not to use them (we have our own code that we prefer). So instead of trying to implement this experiment in full, recording audio and all, see if you can get something that looks along the right lines (hearing the confederate speak and selecting from two pictures; seeing a picture and clicking a mic button) without worrying about the behind-the-scenes stuff with the audio recording at this point. And if you'd rather just jump to our implementation to see how we do it, that's fine.
+Implementing something like this in full involves some technical steps you haven't seen yet, in particular recording audio and displaying stimuli which consist of pairs of images. jsPsych actually provides some plugins for audio responses but we prefer not to use them (we have our own code that we prefer). So instead of trying to implement this experiment in full, recording audio and all, feel free to see if you can get something that looks along the right lines (hearing the confederate speak and selecting from two pictures; seeing a picture and clicking a mic button) without worrying about the behind-the-scenes stuff with the audio recording at this point. And if you'd rather just jump to our implementation to see how we do it, that's fine.
 
 The sound files and images you will want to play around with are in the `sounds` and `images` folders that you get in the zip file. Note that the audio and image files have quite abstract names - this was something that Jia came up with that made it easy for her to manage a large list of image files. You can look in the images and sounds folders to work this out, but to help you:
 
 For images:
 
-Faces: "f_fr1" is female face, frightened emotion, face number 1 (we have several faces for each emotion); "f_ha2" is happy female face number 2. Male faces start with "m_" rather than "f_" - e.g. "m_fr1" would be frightened male face number 2
+Faces: "f_fr1" is **f**emale face, **fr**ightened emotion, face number **1** (we have several faces for each emotion); "f_ha2" is happy female face number 2. Male faces start with "m_" rather than "f_" - e.g. "m_fr1" would be frightened male face number 2
 
 Fruit and veg: these are named "frv1" (apple) through to "frv16" (watermelon).
 
