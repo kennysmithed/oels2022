@@ -64,11 +64,11 @@ There are actually two implementations of the experiment included in the zip fil
 - A short version with a small number of trials. The code for this is in `confederate_priming.html` and `confederate_priming.js`, and the URL will be https://jspsychlearning.ppls.ed.ac.uk/~UUN/online_experiments_practicals/confederate_priming/confederate_priming.html if your directory structure is as suggested in previous weeks. This is the code I will start with in the explanation below.
 - A full-length version with a large number of trials (100+). The code for this is in `confederate_priming_readfromcsv.html` and `confederate_priming_readfromcsv.js`, and the URL should be https://jspsychlearning.ppls.ed.ac.uk/~UUN/online_experiments_practicals/confederate_priming/confederate_priming_readfromcsv.html. If you want a longer demo you can run this, but the main purpose of including the second version is to show you how a long trial list can be read in from a CSV file.
 
-Picture selection trials in our implementation work in essentially the same was as picture selection trials in the perceptual learning experiment, using the `audio-button-response` plugin. Picture description trials are a series of `html-button-response` trials (with the participant clicking on a mic button to start and stop recording), with some additional infrastructure to handle recording audio. Picture selection trials involve presenting two side-by-side images, one highlighted with a green box, and it turns out it is easier to do this using the `html-button-response` plugin than it is using the `image-button-response` plugin.
+Picture selection trials in our implementation work in essentially the same way as picture selection trials in the perceptual learning experiment, using the `audio-button-response` plugin. Picture description trials are a series of `html-button-response` trials (with the participant clicking on a mic button to start and stop recording), with some additional infrastructure to handle recording audio. Picture description trials involve presenting two side-by-side images, one highlighted with a green box, and it turns out it is easier to do this using the `html-button-response` plugin than it is using the `image-button-response` plugin - this is explained below!
 
-We also simulate the confederate preparing to speak and making a selection based on the participant's productions by inserting variable-duration "waiting for partner" screens.
+We also simulate the confederate preparing to speak and making a selection based on the participant's productions by inserting variable-duration delays at appropriate points. The full experiment also included disfluencies etc (you can see some of the sound files for those if you go digging in the `sounds` folder) but we'll keep it simple here.
 
-The code therefore uses plugins you are already familiar with - the main new addition to the code is some functions which record audio, but you don't actually need to know how this works (although the code is there for you to look if you are interested).
+The code therefore uses plugins you are already familiar with - the main new addition to the code is some functions which record audio, but you don't actually need to know how this works (although the code is there for you to look if you are interested), and a bit of trickery to get two images displayed side by side as a stimulus (which is actually quite easy).
 
 ### Loading the code for recording audio
 
@@ -106,7 +106,7 @@ var participant_id = jsPsych.randomization.randomID(10);
 
 This creates a variable, `participant_id`, which we can use later. The participant IDs are a string of randomly-generated letters and numbers, in this case set to length 10 (e.g. "asqids6sn1") - since there are many many possible combinations of length 10 (36 to the power 10, which is more than 3,600,000,000,000,000) in practice this should mean that no two participants are assigned the same ID, and therefore each participant has a unique ID. Depending on how you set up your experiment, on some crowdsourcing platforms you might want to access the participant's platform-specific ID rather than generating a random one (e.g. every participant on Prolific has a unique ID), we'll show you how to do that in the final week of the course, it's easy. But for now we'll just generate a random ID per participant.
 
-At various points in the experiment we also want to create a random-length delay, to simulate another participant composing their description or selecting an image based on the genuine participant's description. In the Loy & Smith (2021) paper we had a fairly intricate system for generating these random delays, making them quite long initially (to simulate a partner who was not yet used to the task) and then reducing over time (to simulate increasing familiarity, but also not to needlessly waste our real participants' time). My impression is that this was reasonably successful - we have run a number of experiments with this set-up and not too many participants guessed they were interacting with a simulated partner - and also worth the effort, in that most of the people who *did* guess that they were not interacting with a real person were cued by their partner's response delays, in particular, noting that they were quite short and quite consistent.
+At various points in the experiment we also want to create a random-length delay, to simulate another participant composing their description or selecting an image based on the genuine participant's description. In the Loy & Smith (2021) paper we had a fairly intricate system for generating these random delays, making them quite long initially (to simulate a partner who was not yet used to the task) and then reducing over time (to simulate increasing familiarity, but also not to needlessly waste our real participants' time); we also inserted various kinds of disfluencies, particularly early on. My impression is that this was reasonably successful - we have run a number of experiments with this set-up and not too many participants guessed they were interacting with a simulated partner - and also worth the effort, in that most of the people who *did* guess that they were not interacting with a real person were cued by their partner's response delays, in particular, noting that they were quite short and quite consistent.
 
 In the demo experiment, for simplicity's sake we just create a function which returns a random delay between 1800ms and 3000ms, using some built-in javascript code for random number generation:
 
@@ -122,7 +122,7 @@ function random_wait() {
 
 Now we are in a position to start coding up our main trial types. We'll start with picture selection trials, which work in a very similar way to picture selection trials in the perceptual learning experiment - participants hear some audio and then click on an image button, which is pretty straightforward using the `audio-button-response` plugin. The only added complication here is that we want to simulate another person thinking for a moment before starting their description. Unfortunately there's no built-in way to do this within the `audio-button-response` plugin - I was hoping for a `delay_before_playing_audio` parameter or something, but there's no such thing. The solution is to have a sequence of two trials that looks like a single trial - one trial where nothing happens (to simulate the wait for the confederate to speak), then the actual `audio-button-response` trial where we get the audio from the confederate. I built these both using the `audio-button-response` trial - on the waiting trial we just play a tiny bit of silence as the `stimulus` (the plugin won't allow us to have *no* sound, so this was the closest I could get) and wait for a random duration, ignoring any clicks the participant makes, then we move on and play the confederate audio.  
 
-As usual, we'll write a function where we specify the main parts of the trial (the audio file the participant will hear, which I am calling `sound`; the target image, the foil (distractor) image) and then the function returns a complex trial object for us. Here's the full chunk of code, I'll walk you through it piece by piece below:  
+As usual, we'll write a function where we specify the main parts of the trial (the audio file the participant will hear, which I am calling `sound`; the target image, the foil or distractor image) and then the function returns a complex trial object for us. Here's the full chunk of code, I'll walk you through it piece by piece below:  
 
 ```js
 function make_picture_selection_trial(sound, target_image, foil_image) {
@@ -187,14 +187,14 @@ We add the images we are going to show to a list we are building up, called `ima
   images_to_preload.push(foil_image);
 ```
 
-We adding the path for the sound file (all our sound files are in the `sounds` directory and have `.wav` on the end)
+We add the path for the sound file (all our sound files are in the `sounds` directory and have `.wav` on the end)
 
 ```js
   //create sound file name
   var sound_file = "sounds/" + sound + ".wav";
 ```
 
-We then do some randomisation stuff: we generate a random wait using our `random_wait` function (for the period of silence before the confederate starts speaking), and we shuffle the order in which the two images will be displayed. Note that we are doing this here, when we create the trial, rather than in the `on_start`, because our picture selection trial is actually going to have a sequence of two trials in it, and we want them to have the pictures in the same order (it would be super-weird if the order of the images flip part-way through the trial!).
+We then do some randomisation stuff: we generate a random wait using our `random_wait` function (for the period of silence before the confederate starts speaking), and we shuffle the order in which the two images will be displayed on-screen. Note that we are doing this here, when we create the trial, rather than in the `on_start`, because our picture selection trial is actually going to have a sequence of two trials in it, and we want them to have the pictures in the same order (it would be super-weird if the order of the images flip part-way through the trial!). There are several ways this could be achieved, I thought this was the simplest.
 
 ```js
   //generate random wait and random order of images
@@ -206,7 +206,7 @@ We then do some randomisation stuff: we generate a random wait using our `random
 ```
 
 
-Our random wait is then an `audio-button-response` trial, where the participant sees the two image buttons on screen, but we ignore anything they click on (`response_ends_trial` is set to false), and we set `trial_duration` to the random wait we generated earlier. As int he perceptual learning experiment, we are using the `button_html` parameter to make our buttons appear as images rather than text.
+Our random wait is then an `audio-button-response` trial, where the participant sees the two image buttons on screen, but we ignore anything they click on (`response_ends_trial` is set to false), and we set `trial_duration` to the random wait we generated earlier. As in the perceptual learning experiment, we are using the `button_html` parameter to make our buttons appear as images rather than text.
 
 ```js
   //trial for the delay before the partner starts speaking
@@ -222,7 +222,7 @@ Our random wait is then an `audio-button-response` trial, where the participant 
   };
 ```
 
-Our actual selection trial requires quite a large block of code to generate it (see the big chunk of code above, where we create `selection_trial`), but this is all stuff you have seen before - an `audio-button-response trial`, where we add some stuff the the trial data `on_start` (we add an extra parameter to the trial `data` object, simply marking these trials as picture selection trials), and then work out which button the participant actually clicked `on_finish`, saving the trial data to the server using the `save_confederate_priming_data` function too. 
+Our actual selection trial requires quite a large block of code to generate it (see the big chunk of code above, where we create `selection_trial`), but this is all stuff you have seen before - an `audio-button-response trial`, where we add some stuff the the trial data `on_start`, and then work out which button the participant actually clicked `on_finish`, saving the trial data to the server using the `save_confederate_priming_data` function. 
 
 Finally, we stick our waiting trial and our picture selection trial together as a single trial consisting of just a timeline and returning that two-part trial.:
 
