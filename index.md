@@ -16,7 +16,7 @@ We'll also be supported in lab classes by three excellent tutors: Aislinn Keogh,
 
 ## Class times
 
-The course runs in semester 1. We have lectures 9am-9.50am on Mondays, and lab classes 9am-10.50am on Wednesdays. There are also extra dorp-in labs available, see below.
+The course runs in semester 1. We have lectures 9am-9.50am on Mondays, and lab classes 9am-10.50am on Wednesdays. There are also extra drop-in labs available, see below.
 
 Lectures and labs are both essential to doing well on the course - the assessment involves an understanding both of the literature on online experiments (covered in the readings and lectures) and the practicalities of how to build them (covered in your own work on the practicals, with support available in the labs).
 
