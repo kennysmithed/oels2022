@@ -13,7 +13,7 @@ You can download my code through the following two links:
 
 You'll guess from the names that these both build on the readfromcsv version of the confederate priming code. If you drop these into your `confederate_priming` folder they will be able to access the various stimuli folders that are already there.
 
-## ... how would you randomly allocate a participant to one of these two conditions, overspecific or minimally specific? 
+## How would you randomly allocate a participant to one of these two conditions, overspecific or minimally specific? 
 
 This one wasn't marked as hard (maybe it should have been) but random assignment to conditions is useful so I will walk through it here!
 
