@@ -126,7 +126,7 @@ No lecture or lab in week 11, but there are some materials that will be useful f
 
 ### Additional drop-in labs
 
-If you have questions and don't get a chance to ask them in labs, you can turn up at one of our additional drop-ins, which start in week 5 (week commencing 17th October). 
+If you have questions and don't get a chance to ask them in labs, you can turn up at one of our additional drop-ins, which start in week 5 (week commencing 17th October, until 9th December). 
 - Mondays, 1.10pm-2pm, online with Aislinn. This is in the same Teams channel as used for the labs (see instructions on how to sign up to the Teams channel on Learn)
 - Thursdays, 3.10pm-4pm, in Dugald Stewart Building room 4.01 with Vilde.
 
@@ -134,7 +134,17 @@ Note that these are not compulsory, and they are drop-ins not extra labs - the i
 
 ### Additional drop-in labs for questions on Assessment 2 code
 
-We will provide some extra drop-in labs to give you an opportunity to get some help with your Assignment 2 code. Obviously we won't write your code for you, but if you are having trouble interpreting an error message or finding a bug or want some tips on how to achieve a particular effect we can help you figure it out. **Dates and times TBC.**
+We will provide some extra drop-in labs to give you an opportunity to get some help with your Assignment 2 code. Obviously we won't write your code for you, but if you are having trouble interpreting an error message or finding a bug or want some tips on how to achieve a particular effect we can help you figure it out. Note that these are not compulsory, and they are drop-ins not extra labs - the idea is that you come along, ask a couple of questions, then go away. These are available at the following times and locations:
+
+- Monday 28th November, 9am-11am, Appleton Tower Room 2.06, with Kenny
+- Monday 28th November, 1pm-2pm, online, with Aislinn (this is Aislinn's regular drop-in lab)
+- Thursday 1st December, 11am-1pm, 40 George Square Room 9.14, with Kenny
+- Thursday 1st December, 3pm-4pm, Dugald Stewart Building room 4.01, with Vilde (this is Vilde's regular drop-in lab)
+- Monday 5th December, 11am-1pm, 40 George Square Room 9.14, with Kenny
+- Monday 5th November, 1pm-2pm, online, with Aislinn (this is Aislinn's regular drop-in lab)
+- Tuesday 6th December, 11am-1pm, Dugald Stewart Building Room 4.01, with Alisdair
+- Thursday 8th December, 3pm-4pm, Dugald Stewart Building room 4.01, with Vilde (this is Vilde's regular drop-in lab - NB this is after the assignment deadline, unless you have an extension!)
+
 
 ## Re-use
 
