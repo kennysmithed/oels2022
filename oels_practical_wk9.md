@@ -14,7 +14,7 @@ In terms of the trial types we need to present to participants, this experiment 
 
 The complication this week is that rather than pre-specifying the language participants have to learn, we are running an *iterated learning* design: the language produced by one participant in the production phase becomes the input language to another participant in the observation phase, allowing us to pass the language from person to person and watch it evolve. Participants are organised in *chains*, where the participant at generation *n* in a particular chain learns from the language produced by the generation *n-1* participant in that chain.
 
-There are a number of ways you could do iterated learning in an online experiment. You could do it entirely manually - you could wait until one participant had finished, get their data and convert it into a new input language that you manually add to the experiment code before releasing it for the next participant (but that sounds slow and labour-intensive!).  You could write a python server, a bit like the one we will use for dyadic interaction next week, that keeps track of which chains are running, which participants are in which chains, and then passes over the appropriate training data when a new participant starts the experiment. Or you could run a database on the server (in another language, SQL, designed for managing databases), that does the same kind of thing, keeping track of which chains are open, which participants are in which chain, and so on.
+There are a number of ways you could do iterated learning in an online experiment. You could do it entirely manually - you could wait until one participant has finished, get their data and convert it into a new input language that you manually add to the experiment code before releasing it for the next participant (but that sounds slow and labour-intensive!).  You could write a python server, a bit like the one we will use for dyadic interaction next week, that keeps track of which chains are running, which participants are in which chains, and then passes over the appropriate training data when a new participant starts the experiment. Or you could run a database on the server (in another language, SQL, designed for managing databases), that does the same kind of thing, keeping track of which chains are open, which participants are in which chain, and so on.
 
 Here we are going to go for a relatively low-tech but automatic approach, using CSV files on the server to store the languages participants produce, and then using PHP scripts (just like the ones we use for saving data) to write to those files, read from those files, and move files around to different folders. This hopefully means that we can get an iterated learning experiment up and running without any extra fancy bells and whistles, but without having to do anything manual ourselves in terms of passing languages from person to person. We already looked at reading CSV files from the server to build a trial list (in the confederate priming code), so some of the principles involved here are the same (e.g. using asynchronous functions to make javascript wait while PHP is off reading a file from the server) and some are slightly different (in this experiment all the files we are manipulating will be in `server_data`, which necessitates a slightly different technical approach). Again, like last week, I won't bother you with the contents of the technical infrastructure too much (the contents of the PHP scripts), and instead talk you through the code at a conceptual level, focussing on the jsPsych end of things.  
 
@@ -113,7 +113,7 @@ function save_data(directory, filename, data) {
 }
 ```
 
-In particular, we now pass more complex information over to the PHP script (in `data_to_send`) - not just the filename and data, but also the directory to save in. The other stuff (the fetch command, the JSON stuff, etc) is the same as the old version you don't have to worry about those details.
+In particular, we now pass more complex information over to the PHP script (in `data_to_send`) - not just the filename and data, but also the directory to save in. The other stuff (the fetch command, the JSON stuff, etc) is the same as the old version, and you don't have to worry about those details.
 
 Our `save_iterated_learning_data` function (which is the next bit in the code) then uses this new `save_data` function to save participant trial-by-trial data to the `participant_data` folder. But we'll also use the same `save_data` function to write final output languages to the `ready_for_iteration` folder too.
 
@@ -244,7 +244,6 @@ function make_production_trial(object_filename) {
       var button_pressed = buttons[data.response];
       //if they clicked DONE
       if (button_pressed == "DONE") {
-          var button_pressed = buttons[data.response];
           data.label = button_pressed;
           data.block = "production"; //mark it as production data
           participant_final_label_set.push({object:object_filename,label:data.label}); //add this object-label pair to participant_final_label_set
@@ -277,7 +276,7 @@ So that will loop until the participant clicks DONE, at which point the trial wi
 We can solve all these problems by creating a new variable, `building_label`, which will be a list of all the syllables the participant has selected so far. Initially this will be empty:
 
 ```js
-var building_label = []
+var building_label = [];
 ```
 
 But every time the participant clicks on a syllable, we will add that syllable to the building label using push - so if the participant clicks "ti" then "vu" the building label will be:
