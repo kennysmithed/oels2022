@@ -363,9 +363,17 @@ participant_final_label_set.push({object:object_filename,label:final_label});
 ```
 Third, we also save the trial data to the server as usual, using `save_iterated_learning_data`, to keep a more detailed record of the participant's response.
 
-The only annoying thing about this is that the `prompt` in the `image-button-response` plugin appears below the buttons, which looks terrible in this case, so we use a custom plugin, `image-button-response-promptabovebuttons`, which just repositions the prompt - we just load that custom plugin in the usual way, and use it instead of `image-button-response` here.
+The only annoying thing about this is that the `prompt` in the `image-button-response` plugin appears below the buttons, which looks terrible in this case, so we use a custom plugin, `image-button-response-promptabovebuttons`, which just repositions the prompt - we just load that custom plugin in the html file the same way as we do with the other local javascript files we need:
 
-We can then use this `make_production_trial` function (and the equivalent `make_observation_trial` function) to create a trial list of observation and production trials. That's what the next block of code does: `build_training_timeline` and `build_testing_timeline` both take an input language specified as a list of ``{object:object_filename,label:a_label}`` object-label pairs, and build a training or testing timeline.
+```html
+        <script src="plugin-image-button-response-promptabovebuttons.js"></script>
+        <script src="manage_language_files.js"></script>
+        <script src="iterated_learning.js"></script>
+```
+
+Then we can use the custom plugin instead of `image-button-response` in our production trials.
+
+We can then use our `make_production_trial` function (and the equivalent `make_observation_trial` function) to create a trial list of observation and production trials. That's what the next block of code does: `build_training_timeline` and `build_testing_timeline` both take an input language specified as a list of ``{object:object_filename,label:a_label}`` object-label pairs, and build a training or testing timeline.
 
 `build_training_timeline` takes a list of object-label pairs and builds a training timeline consisting of `n_repetitions` blocks (`n_repetitions` is set to 1 below, so only one repetition of each training item) - each block contains one observation trial for each object-label pair in `object_label_pairs`.
 ```js
