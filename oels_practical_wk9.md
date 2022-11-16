@@ -50,7 +50,7 @@ Once you've done that, your `server_data` folder looks like this, and you are re
 
 ![il directory structure with initial languages](images/il_detailed_directory_structure_plus_g0.png)
 
-If your directory structure is as I have been using so far, where all the exercises are in a folder called `online_experiments_practicals`, then the url for your implementation will be https://jspsychlearning.ppls.ed.ac.uk/~UUN/online_experiments_practicals/iterated_learning/my_iterated_learning.html and the URL for the final implementation will be https://jspsychlearning.ppls.ed.ac.uk/~UUN/online_experiments_practicals/iterated_learning/iterated_learning.html
+If your directory structure is as I have been using so far, where all the exercises are in a folder called `online_experiments_practicals`, then the URL for the final implementation will be https://jspsychlearning.ppls.ed.ac.uk/~UUN/online_experiments_practicals/iterated_learning/iterated_learning.html
 
 If you run through our implementation of the experiment you'll see that the experiment consists of two trial types: a block of observation trials (where the participant sees a picture plus label) and then a block of production trials (the participant sees an image, produces a label). 
 
