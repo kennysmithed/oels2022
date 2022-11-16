@@ -74,7 +74,7 @@ var global_trial_counter = 1;
 
 //then in trials where you want to increment the counter:
 var my_trial = {
-  type: 'html-button-response',
+  type: jsPsychHtmlButtonResponse,
   stimulus: "Placeholder",
   choices: ["Continue"],
   on_finish: function () {
