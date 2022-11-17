@@ -538,7 +538,7 @@ The final line of the code simply runs this `run_experiment()` function, startin
 
 ## Exercises with the iterated learning experiment code
 
-As usual, try these yourself, and you can consult the notes we release after the lab class finishes.
+As usual, try these yourself, and once you have had a go, you can [look at our notes](oels_practical_wk9_notes.md).
 
 - **After setting up the various folders in `server_data`**, run the experiment and use cyberduck to watch the CSV files appearing and moving around in `server_data/il` - remember you will need to click refresh in cyberduck regularly to see what's happening. Experiment with abandoning the experiment part-way through (i.e. closing the browser window) and see what happens. Look at the CSV data files that get created in various places, and check that the contents of the data files make sense and how they relate to what you see as a participant. Try to run a few generations of at least one chain and check that the iteration process works as you expect.
 - How would you increase the number of training trials in the observation phase of the experiment to provide e.g. 6 passes through the training set? How would you increase or decrease the size of the transmission bottleneck?
