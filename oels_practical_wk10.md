@@ -9,8 +9,8 @@ This week we are going to look at code for a dyadic interaction task based on th
 
 In terms of the trial types we need to present to participants, this experiment is actually very simple, and uses elements of the code we developed in the practicals on word learning, perceptual learning, and iterated learning.
 - Participants go through an initial observation phase where they are exposed to two objects paired with short and long labels. This is basically identical to the observation phase of the word learning experiment in `word_learning.js`.
-- When communicating with their partner, participants sometimes act as what I'll call the *director* - they are presented with an object and asked to select one of two labels to send to their partner. This is very similar to the production trial phase in the word learning experiment. The only difference is that we need to add a manipulation of production effort, making the longer labels more onerous to send. I explain how we do that below, but it involves a looping trial like we used in the production trials in the iterated learning code.
-- When communicating with their partner, participants sometimes act as the *matcher* - they are presented with a label and asked to select one of two objects which they think their partner is labelling. This is very similar to the picture selection trials in the perceptual learning experiment, except that we are just using a text label rather than an audio file.
+- When communicating with their partner, participants sometimes act as what I'll call the *director* (in the instructions for participants I call it "sender", which is a better name, but for historical reasons I am stuck calling it director!) - they are presented with an object and asked to select one of two labels to send to their partner. This is very similar to the production trial phase in the word learning experiment. The only difference is that we need to add a manipulation of production effort, making the longer labels more onerous to send. I explain how we do that below, but it involves a looping trial like we used in the production trials in the iterated learning code.
+- When communicating with their partner, participants sometimes act as the *matcher* (or receiver) - they are presented with a label and asked to select one of two objects which they think their partner is labelling. This is very similar to the picture selection trials in the perceptual learning experiment, except that we are just using a text label rather than an audio file.
 
 However, there is one substantial complication: rather than participants completing this experiment individually, they play in pairs, sending messages back and forth with their partner. We therefore need some infrastructure to allow two participants, working on web browsers anywhere in the world, to interact via the restricted communication channel we provide. The code for this isn't actually too complicated - I figured it out! - but as per last week, I am going to hide most of the detail from you; the code is available and commented if you want to look at it or edit it, but you don't have to (apart from to carry out a couple of very simple edits detailed below). Instead I'll try to explain to you how it works, at a conceptual level, and you can take the details on trust until you need to build a similar experiment yourself.
 
@@ -26,7 +26,7 @@ If your directory structure is as I have been using so far, where all the exerci
 
 ## You build (some of) it, if you want
 
-You haven't been shown the methods for connecting two participants for real-time communication yet, so I don't expect you to be able to implement the full experiment from scratch yourself. But as I explain above, you have nearly all the tools to build something that *looks* like a real-time interaction experience - you could think of it as a confederate priming experiment like we looked at last week, where you have one genuine participant interacting with a computer partner who produces descriptions in a fixed order. So if you want to have a go at coding up the observation trials, or thinking about how you can do some kind of director and matcher trials, go for it. But if you just want to see how we did it, and attempt the exercises at the end, that's OK too.
+You haven't been shown the methods for connecting two participants for real-time communication yet, so I don't expect you to be able to implement the full experiment from scratch yourself. But as I explain above, you have nearly all the tools to build something that *looks* like a real-time interaction experiment - you could think of it as a confederate priming experiment like we looked at last week, where you have one genuine participant interacting with a computer partner who produces descriptions in a fixed order. So if you want to have a go at coding up the observation trials, or thinking about how you can do some kind of director and matcher trials, go for it. But if you just want to see how we did it, and attempt the exercises at the end, that's OK too.
 
 ## Our implementation
 
@@ -60,7 +60,7 @@ Following the model of the last couple of weeks, I have bundled up some of the t
 
 ### The observation phase
 
-When someone enters the experiment, the first thing they do is go through the observation phase. This is a solitary activity, so we handle it just like a normal jspsych experiment - we build some trials (`image-button-response` trials) to show objects and labels, build a timeline of those trials (roughly lines 110-175 of `dyadic_interaction.js`), and then run through that timeline as normal. So far, so standard.
+When someone enters the experiment, the first thing they do is go through the observation phase. This is a solitary activity, so we handle it just like a normal jspsych experiment - we build some trials (`image-button-response` trials) to show objects and labels, build a timeline of those trials (roughly lines 130-190 of `dyadic_interaction.js`), and then run through that timeline as normal. So far, so standard.
 
 ### Sending and receiving messages from the server
 
@@ -70,9 +70,13 @@ The final two trials of the "normal" part of the experiment, after the observati
 var instruction_screen_enter_waiting_room = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
-    "<h3>Instructions before entering the waiting room</h3>\
-  <p style='text-align:left'>Once the participant clicks through here they will connect to the server \
-  and the code will try to pair them with another participant.</p>",
+  "<h3>You are about to enter the waiting room for pairing!</h3>\
+  <p style='text-align:left'>Once you proceed past this point we will attempt to pair \
+  you with another participant. As soon as you are paired you will start to play the \
+  communication game together. <b> Once you are paired, your partner will be waiting for you \
+  and depends on you to finish the experiment</b>, so please progress through the experiment \
+  in a timely fashion, and please if at all possible <b>don't abandon or reload the \
+  experiment</b> since this will also end the experiment for your partner.</p>",
   choices: ["Continue"],
 };
 
@@ -80,7 +84,7 @@ var start_interaction_loop = { type: jsPsychCallFunction, func: interaction_loop
 
 ```
 
-`instruction_screen_enter_waiting_room` is a very boring `html-button-response` trial, showing some dummy instructions. `start_interaction_loop` is another jsPsych trial, of a type we used a couple of time: `call-function`. A `call-function` trial just runs a javascript function, specified in the `func` parameter - in this case, we are asking it to run the function `interaction_loop`, which is going to do some important work for us. The `call-function` plugin is completely invisible for participants - it starts some code running, but nothing appears on the screen, no images are shown, no responses are collected.
+`instruction_screen_enter_waiting_room` is a very boring `html-button-response` trial, showing some instructions emphasising to participants that there is another participant depending on them. `start_interaction_loop` is another jsPsych trial, of a type we have used a couple of times: `call-function`. A `call-function` trial just runs a javascript function, specified in the `func` parameter - in this case, we are asking it to run the function `interaction_loop`, which is going to do some important work for us. The `call-function` plugin is completely invisible for participants - it starts some code running, but nothing appears on the screen, no images are shown, no responses are collected.
 
 So what does the `interaction_loop` function do? It appears with comments in the `dyadic_interaction_utilities.js` file, you can look if you are keen, but basically it does two main things:
 - It creates a connection between the client browser and the python server, using a communication protocol called [WebSockets](https://en.wikipedia.org/wiki/WebSocket), which allow 2-way communication between the browser and the python server. This channel will stay open for the duration of the experiment, and allows the client and the server to communicate seamlessly by sending and receiving messages over the socket. The code for creating the socket is actually very simple, one line of code:
@@ -132,14 +136,23 @@ The second issue we have to deal with is that jsPsych is always moving forward -
 
 Fortunately, jsPsych provides functions to pause and resume the timeline - `jsPsych.pauseExperiment()` and `jsPsych.resumeExperiment()` - which we can make sure we never run out of trials: we pause the experiment when we are waiting for instructions from the python server (one of the first things `interaction_loop` does is pause the timeline to await instructions), then resume it when we have a trial to run, run the trial, and then pause it again as soon as that trial has finished, while we await further instructions from the server.
 
-Now you are in a position to figure out what the `waiting_room()` function does. You'll see in the `on_finish` parameter of the trial, we pause the timeline - that's us pausing the timeline once to trial completes, to await further instructions from the server. And the final two lines of the function, after the waiting room trial has been created, are
+Now you are in a position to figure out what the `waiting_room()` function does. You'll see in the `on_finish` parameter of the trial, we pause the timeline - that's us pausing the timeline once the trial completes, to await further instructions from the server. And the final two lines of the function, after the waiting room trial has been created, are
 ```js
 jsPsych.addNodeToEndOfTimeline(waiting_room_trial);
 jsPsych.resumeExperiment();
 ```
-That adds the trial we just created to the timeline, then once it's been added allows the timeline to resume (only to be paused again when the trial finishes). All the functions that are called when the python server sends over a command have this structure - add the trial, resume the timeline, pause the timeline when the trial completes. The code includes a bunch of functions with this same basic structure, that add trials to the timeline based on prompts from the python server - they are called `waiting_room()`, `waiting_for_partner()`, `show_interaction_instructions()`, `partner_dropout()` (informs the participant that something has gone wrong with the experiment, which is usually the other player dropping out!), `director_trial(target_object,partner_id)` (adds a director trial to the timeline), `matcher_trial(label,partner_id)` (adds a matcher trial to the timeline), `display_feedback(score)` (tells the participant whether the last round of communication was a success or not), and `end_experiment()`. These are all commented up in `dyadic_interaction.js` if you want to take a look.
+That adds the trial we just created to the timeline, then once it's been added allows the timeline to resume (only to be paused again when the trial finishes). All the functions that are called when the python server sends over a command have this structure - add the trial, resume the timeline, pause the timeline when the trial completes. The code includes a bunch of functions with this same basic structure, that add trials to the timeline based on prompts from the python server - they are:
+- `waiting_room()`
+- `waiting_for_partner()`
+- `show_interaction_instructions()`
+- `partner_dropout()` (informs the participant that something has gone wrong with the experiment, which is usually the other player dropping out!)
+- `director_trial(target_object,partner_id)` (adds a director trial to the timeline)
+- `matcher_trial(label,partner_id)` (adds a matcher trial to the timeline)
+- `display_feedback(score)` (tells the participant whether the last round of communication was a success or not)
+- `end_experiment()`. 
+These are all commented up in `dyadic_interaction.js` if you want to take a look.
 
-One other thing to note about the `waiting_room_trial` created by the `waiting_room()` function: it lasts forever! It's an `html-button-response` trial, and it doesn't have a set `trial_duration`, so it needs keyboard input to end. But its `choices` are set to `[]`, so it doesn't put any buttons on-screen for the participant to click. That's a slightly weird trial type to create, but very handy when you want to give a participant a wait-message of uncertain duration. But at some point we will need to kick the timeline out of this trial, i.e. when another command comes in from the python server. We do that using the `jsPsych.finishTrial()`, which simply causes the current trial to end - so several of our functions that create new trials include a check to see if we are currently in one of these infinite-wait trials, and if so end that trial using `jsPsych.finishTrial()`.
+One other thing to note about the `waiting_room_trial` created by the `waiting_room()` function: it lasts forever! It's an `html-button-response` trial, and it doesn't have a set `trial_duration` (because we don't know how long the wait will be), so it needs keyboard input to end. But its `choices` are set to `[]`, so it doesn't put any buttons on-screen for the participant to click. That's a slightly weird trial type to create, but very handy when you want to give a participant a wait-message of uncertain duration. But at some point we will need to kick the timeline out of this trial, i.e. when another command comes in from the python server. We do that using the `jsPsych.finishTrial()`, which simply causes the current trial to end - so several of our functions that create new trials include a check to see if we are currently in one of these infinite-wait trials, and if so end that trial using `jsPsych.finishTrial()`.
 
 ### A simple manipulation of production effort
 
