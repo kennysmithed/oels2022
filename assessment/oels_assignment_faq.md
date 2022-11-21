@@ -31,6 +31,13 @@ Yes definitely!
 
 ## Assessment 2
 
+### Have you got any examples we could look at?
+
+Yes! Here are 2 high-scoring assignments from last year's class, plus the marker notes, kindly provided with approval by their authors. I have made redactions so you can't see the student names or other identifying information, which means I had to take out the URLs for their experiments (which include student numbers) - so I copied their code over to my jspsychlearning profile, URLs below. The marks they are at the end of the report.
+- [Example 1 report](ProgrammingReportExample1.pdf). [Example 1 experiment](https://jspsychlearning.ppls.ed.ac.uk/~ksmith7/Assessment2Examples/Example1/Example1.html)
+- [Example 2 report](ProgrammingReportExample2.pdf). [Example 2 experiment](https://jspsychlearning.ppls.ed.ac.uk/~ksmith7/Assessment2Examples/Example2/Example2.html).
+
+
 ###  Once I have built my experiment, am I supposed to collect actual data from participants?
 
 **NO.** This is extremely important - you must not collect actual data! Apart from anything else, we don't have the time or bandwidth to work through the ethical approval process with all of you, which is obligatory before collecting data. The idea is that this assessment gives you the opportunity to showcase your ability to build a well-motivated online experiment that's designed to test a particular idea you set out in your report. But we are not running a full research project, so no data collection. It's important that you test your experiment yourself so you can be confident it works, but no real data please!
