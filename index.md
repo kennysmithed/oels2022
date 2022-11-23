@@ -125,7 +125,7 @@ No lecture or lab in week 11, but there are some materials that will be useful f
 
 - *Scientific content:* None!
 - *Technical content:* How to set up a server, launch and pay participants, manage qualifications, etc
-- [Reading](oels_wk11.md)
+- [How to get your experiment online](oels_wk11.md)
 
 ### Additional drop-in labs
 
