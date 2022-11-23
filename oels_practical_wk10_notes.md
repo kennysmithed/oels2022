@@ -64,7 +64,7 @@ So at the moment, longer labels require more clicks. You could change that by ju
 n_clicks_required = 1;
 ```
 
-In that case it might make sense to remove the looping trial that handles the repeated-clicking step, and just have participants select a label to send, but that is more work.
+In that case it might make sense to remove the looping trial that handles the repeated-clicking step, and just have participants select a label to send, but that is more work for you.
 
 ### How could you manipulate production effort in the other direction, making long labels even more effortful to produce?
 
