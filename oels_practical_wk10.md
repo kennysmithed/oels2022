@@ -196,6 +196,8 @@ and hit return, you should see a little message saying something like "starting 
 
 ## Exercises with the dyadic interaction experiment code
 
+As usual, try these yourself, and once you have had a go, you can [look at our notes](oels_practical_wk10_notes.md).
+
 - Run the experiment and look at the CSV data files it creates (one per participant). Check that the contents of the data files make sense and how they relate to what you see as a participant.
 - How would you increase the number of training trials in the observation phase of the experiment?
 - It's also possible to change the number of interaction trials, but this will involve editing the python server code and running your own private python server with your edited version. The relevant line is line 61 of `dyadic_interaction_server.py`, which looks like this:
