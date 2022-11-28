@@ -146,7 +146,7 @@ Note that these are not compulsory, and they are drop-ins not extra labs - the i
 
 We will provide some extra drop-in labs to give you an opportunity to get some help with your Assignment 2 code. Obviously we won't write your code for you, but if you are having trouble interpreting an error message or finding a bug or want some tips on how to achieve a particular effect we can help you figure it out. Note that these are not compulsory, and they are drop-ins not extra labs - the idea is that you come along, ask a couple of questions, then go away. These are available at the following times and locations:
 
-- Monday 28th November, 9am-11am, Appleton Tower Room 2.06, with Kenny
+- Monday 28th November, 9am-11am, Appleton Tower Room 2.06, with Maisy
 - Monday 28th November, 1pm-2pm, online, with Aislinn (this is Aislinn's regular drop-in lab)
 - Thursday 1st December, 11am-1pm, 40 George Square Room 9.14, with Kenny
 - Thursday 1st December, 3pm-4pm, Dugald Stewart Building room 4.01, with Vilde (this is Vilde's regular drop-in lab)
