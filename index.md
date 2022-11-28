@@ -127,6 +127,13 @@ No lecture or lab in week 11, but there are some materials that will be useful f
 - *Technical content:* How to set up a server, launch and pay participants, manage qualifications, etc
 - [How to get your experiment online](oels_wk11.md)
 
+### Bonus content
+
+I am sticking some extra documented experiments I have created here, in case they are useful for someone or provide inspiration.
+
+- [Co-speech gesture experiment](bonus/cospeech_gesture.md), presenting a video and getting button/text responses.
+- [Semantic extension experiment]](https://github.com/kennysmithed/SemanticExtension). This is a simple experiment looking at how participants extend the meaning of signals. Based on the dyadic interaction code from week 10, but includes additional machinery to deal with a wider range of participant drop-outs, has on-screen trial counters, a warm-up with catch trials.
+
 ### Additional drop-in labs
 
 If you have questions and don't get a chance to ask them in labs, you can turn up at one of our additional drop-ins, which start in week 5 (week commencing 17th October, until 9th December). 
