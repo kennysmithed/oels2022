@@ -132,7 +132,7 @@ No lecture or lab in week 11, but there are some materials that will be useful f
 I am sticking some extra documented experiments I have created here, in case they are useful for someone or provide inspiration.
 
 - [Co-speech gesture experiment](bonus/cospeech_gesture.md), presenting a video and getting button/text responses.
-- [Semantic extension experiment]](https://github.com/kennysmithed/SemanticExtension). This is a simple experiment looking at how participants extend the meaning of signals. Based on the dyadic interaction code from week 10, but includes additional machinery to deal with a wider range of participant drop-outs, has on-screen trial counters, a warm-up with catch trials.
+- [Semantic extension experiment]](https://github.com/kennysmithed/SemanticExtension). This is a more complex experiment looking at how participants extend the meaning of novel signals in a communication game. Based on the dyadic interaction code from week 10, but includes additional machinery to deal with a wider range of participant drop-outs, has on-screen trial counters, a warm-up with catch trials.
 
 ### Additional drop-in labs
 
