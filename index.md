@@ -1,5 +1,7 @@
 This is the webpage for the Honours/MSc course Online Experiments for Language Scientists, running in academic year 2022/2023. I will add links to materials (readings, code) to this page; you will need to use Learn for electronic submission of your assessed work, and to keep an eye on announcements.
 
+*For non-Edinburgh people*: all the course materials are here and you are welcome to use them with attribution. If you would like us to run something like this for your students or research group, [contact Kenny](mailto:kenny.smith@ed.ac.uk).
+
 ## Course summary
 
 Many areas in the language sciences rely on collecting data from human participants, from grammaticality judgments to behavioural responses (key presses, mouse clicks, spoken responses). While data collection traditionally takes place face-to-face, recent years have seen an explosion in the use of online data collection: participants take part remotely, providing responses through a survey tool or custom experimental software running in their web browser, with surveys or experiments often being advertised on crowdsourcing websites like Amazon Mechanical Turk (MTurk) or Prolific. Online methods potentially allow rapid and low-effort collection of large samples (and are also useful in situations where face-to-face data collection is not possible, e.g. during a pandemic); however, building and running these experiments poses challenges that differ from lab-based methods.
