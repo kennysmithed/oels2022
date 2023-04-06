@@ -130,9 +130,11 @@ Here's a screenshot of what this setup looks like in the Prolific New Study page
 How do we do the automatic redirect at the end? This should be part of the `on_finish` function for the whole experiment; we can redirect the browser to the URL Prolific tell us to use with `window.location` in javascript. For instance, the following code will redirect participants given a completion code of 3586E29D (**NB your completion code will be different**).
 
 ```js
-jsPsych.init({...,
-	on_finish: function() {
-		window.location = 'https://app.prolific.co/submissions/complete?cc=3586E29D'}});
+var jsPsych = initJsPsych({
+  on_finish: function(){
+    window.location = "https://app.prolific.co/submissions/complete?cc=3586E29D"
+  }
+});
 ```
 
 These options are also described in [the jsPsych documentation](https://www.jspsych.org/7.0/overview/prolific/#completing-the-experiment).
