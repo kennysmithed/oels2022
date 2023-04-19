@@ -134,7 +134,7 @@ No lecture or lab in week 11, but there are some materials that will be useful f
 I am sticking some extra documented experiments I have created here, in case they are useful for someone or provide inspiration.
 
 - [Co-speech gesture experiment](bonus/cospeech_gesture.md), presenting a video and getting button/text responses.
-- [Semantic extension experiment]](https://github.com/kennysmithed/SemanticExtension). This is a more complex experiment looking at how participants extend the meaning of novel signals in a communication game. Based on the dyadic interaction code from week 10, but includes additional machinery to deal with a wider range of participant drop-outs, has on-screen trial counters, a warm-up with catch trials.
+- [Semantic extension experiment](https://github.com/kennysmithed/SemanticExtension). This is a more complex experiment looking at how participants extend the meaning of novel signals in a communication game. Based on the dyadic interaction code from week 10, but includes additional machinery to deal with a wider range of participant drop-outs, has on-screen trial counters, a warm-up with catch trials.
 - [Custom html-button-response plugin with buttons laid out in a grid](https://github.com/aislinnkeogh/custom-jspysch-plugins/blob/main/plugin-html-button-response-grid.js), written by Aislinn Keogh - uses an html table to do that, the plugin provides 2 additional parameters, `rows` and `columns`, e.g. for a 3 row, 2 column grid you'd do ```{type: jsPsychHtmlButtonResponseGrid, rows: 3, columns: 2, choices: [6 choices here]}```
 
 ### Additional drop-in labs
